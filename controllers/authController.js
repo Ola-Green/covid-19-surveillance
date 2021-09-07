@@ -126,7 +126,9 @@ const authController = {
           const user = await User.findById(result.id).select("-password");
 
           if (!user)
-            return res.status(400).json({ msg: "This does not exist." });
+            return res
+              .status(400)
+              .json({ msg: "This user does not exist.Please login." });
 
           const access_token = createAccessToken({ id: result.id });
 

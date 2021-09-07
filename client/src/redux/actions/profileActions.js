@@ -26,7 +26,7 @@ export const getProfileUsers =
       });
       dispatch({
         type: PROFILE_TYPES.GET_SURVEYS,
-        payload: { ...res1.data, _id: id, page: 2 },
+        payload: { ...res1.data, _id: id },
       });
 
       dispatch({ type: PROFILE_TYPES.LOADING, payload: false });
@@ -41,21 +41,16 @@ export const getProfileUsers =
 export const updateProfileUser =
   ({ inputs, avatar, auth }) =>
   async (dispatch) => {
-    if (!inputs.firstName)
-      dispatch({
-        type: TYPES.ALERT,
-        payload: { error: "Please add your first name" },
-      });
     if (inputs.firstName.length > 25)
       dispatch({
         type: TYPES.ALERT,
         payload: { error: "Fullname length exceeded" },
       });
 
-    if (inputs.story.length > 200)
+    if (inputs.address.length > 200)
       dispatch({
         type: TYPES.ALERT,
-        payload: { error: "Story length can't exceed 200 characters" },
+        payload: { error: "address length can't exceed 200 characters" },
       });
 
     try {

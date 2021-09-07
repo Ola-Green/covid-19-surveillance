@@ -7,7 +7,15 @@ body {
 }
 
 .home-btn:hover {
-  background-color: white !important;
+  background-color: red !important;
+}
+
+.nm {
+  color: #cc96cc;
+}
+
+.p-info {
+  cursor: pointer;
 }
 
 @import url("./home.css");
@@ -20,4 +28,4 @@ body {
 @import url("./allpurpose.css");
 @import url("./avatar.css");
 @import url("./survey.css");
-@import url("./surveytable.css");
+/* @import url("./surveytable.css"); */

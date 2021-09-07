@@ -149,12 +149,12 @@ export const EditProfile = ({ setEditProfile }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="address">Address</label>
+          <label htmlFor="town">Town</label>
           <input
             type="text"
             className="form-control"
-            name="address"
-            value={address}
+            name="town"
+            value={town}
             onChange={handleChange}
           />
         </div>
@@ -169,19 +169,19 @@ export const EditProfile = ({ setEditProfile }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="story">Town</label>
+          <label htmlFor="address">Address</label>
 
           <textarea
-            name="town"
-            id="town"
+            name="address"
+            id="address"
             cols="30"
             rows="4"
             className="form-control"
-            value={town}
+            value={address}
             onChange={handleChange}
           />
           <small className="d-block text-danger text-right">
-            {town.length} / 200
+            {address.length} / 200
           </small>
         </div>
 

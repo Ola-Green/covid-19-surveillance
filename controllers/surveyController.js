@@ -1,5 +1,22 @@
 const Survey = require("../models/survey");
 
+class ApiFeatures {
+  constructor(query, queryString) {
+    this.query = query;
+    this.queryString = queryString;
+  }
+
+  paginating() {
+    const page = this.queryString.page * 1 || 1;
+    const limit = this.queryString.limit * 1 || 9;
+
+    const skip = (page - 1) * limit;
+    this.query = this.query.skip(skip).limit(limit);
+
+    return this;
+  }
+}
+
 const surveyController = {
   makeSurvey: async (req, res) => {
     try {
@@ -33,7 +50,7 @@ const surveyController = {
 
       res.json({
         msg: "Your answers have been submitted!",
-        survey: {
+        newSurvey: {
           ...newSurvey._doc,
           user: req.user,
         },
@@ -45,10 +62,15 @@ const surveyController = {
 
   getUserSurvey: async (req, res) => {
     try {
-      const survey = Survey.find({ user: req.params.id });
+      const features = new ApiFeatures(
+        Survey.find({ user: req.params.id }),
+        req.query
+      ).paginating();
+      const surveys = await features.query.sort("-createdAt");
+
       res.json({
-        survey,
-        result: survey.length,
+        surveys,
+        result: surveys.length,
       });
     } catch (err) {
       return res.status(500).json({ msg: err.message });

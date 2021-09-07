@@ -14,9 +14,5 @@ export default function Survey({ auth, id, dispatch, profile }) {
     });
   }, [profile.surveys, id]);
 
-  return (
-    <div>
-      <SurveyTable surveys={surveys} result={result} />
-    </div>
-  );
+  return <SurveyTable surveys={surveys} result={result} />;
 }

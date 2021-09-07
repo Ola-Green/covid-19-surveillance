@@ -14,25 +14,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/authActions";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    background: "#f8f9fa",
+  },
+
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
-  },
-
-  sectionDesktop: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
-    },
-  },
-
-  sectionMobile: {
-    display: "flex",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
-    },
   },
 }));
 
@@ -45,16 +35,16 @@ function Header() {
   const openMenu = (event) => setAnchorEl(event.currentTarget);
   const closeMenu = () => setAnchorEl(null);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" className={classes.root}>
       <Toolbar>
         <div className={classes.title}>
           <Button
             variant="contained"
             component={Link}
-            to={auth.token ? "/survey" : "/login"}
+            to={auth.token ? "/consent" : "/login"}
           >
             Check Your Covid Status
           </Button>
@@ -64,43 +54,47 @@ function Header() {
           {isMobile ? (
             <>
               <IconButton
-                className={classes.sectionMobile}
                 edge="start"
-                color="inherit"
+                color="primary"
                 aria-label="menu"
                 onClick={openMenu}
-                onClose={closeMenu}
               >
                 <MenuIcon />
               </IconButton>
-
-              <Menu
-                anchorEl={anchorEl}
-                keepMounted
-                id="mobile-menu"
-                open={open}
-              >
-                <MenuItem component={Link} to="/" onClick={closeMenu}>
-                  Home
-                </MenuItem>
-                <MenuItem component={Link} to="/login" onClick={closeMenu}>
-                  Login
-                </MenuItem>
-                {auth.token && (
-                  <MenuItem
-                    component={Link}
-                    to={`/profile/${auth.user._id}`}
-                    onClick={closeMenu}
-                  >
-                    Profile
+              {
+                <Menu
+                  anchorEl={anchorEl}
+                  keepMounted
+                  id="mobile-menu"
+                  open={open}
+                  onClose={closeMenu}
+                >
+                  <MenuItem component={Link} to="/" onClick={closeMenu}>
+                    Home
                   </MenuItem>
-                )}
-              </Menu>
+                  {auth.token ? (
+                    <MenuItem color="inherit">{auth.user.firstName}</MenuItem>
+                  ) : (
+                    <MenuItem component={Link} to="/login" onClick={closeMenu}>
+                      Login
+                    </MenuItem>
+                  )}
+                  {auth.token && (
+                    <MenuItem
+                      component={Link}
+                      to={`/profile/${auth.user._id}`}
+                      onClick={closeMenu}
+                    >
+                      Profile
+                    </MenuItem>
+                  )}
+                </Menu>
+              }
             </>
           ) : (
             <div>
               <Button
-                color="inherit"
+                color="primary"
                 className="home-btn"
                 component={Link}
                 to="/"
@@ -109,7 +103,7 @@ function Header() {
               </Button>
 
               {auth.token ? (
-                <span color="inherit">{auth.user.firstName}</span>
+                <span className="nm">{auth.user.firstName}</span>
               ) : (
                 <Button
                   variant="contained"
@@ -126,7 +120,7 @@ function Header() {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={openMenu}
-                color="inherit"
+                color="primary"
               >
                 <MoreVert />
               </IconButton>
@@ -163,6 +157,7 @@ function Header() {
                     variant="contained"
                     onClick={() => dispatch(logout())}
                     component={Link}
+                    to="/"
                   >
                     Logout
                   </Button>
