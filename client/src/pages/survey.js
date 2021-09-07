@@ -9,9 +9,7 @@ const ColorButton = withStyles((theme) => ({
   root: {
     color: theme.palette.getContrastText(purple[500]),
     backgroundColor: purple[500],
-    "&:hover": {
-      backgroundColor: purple[700],
-    },
+
     padding: "15px 20px",
     border: "1px solid",
     lineHeight: 1.5,

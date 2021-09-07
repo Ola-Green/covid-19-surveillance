@@ -7,11 +7,16 @@ body {
 }
 
 .home-btn:hover {
-  background-color: red !important;
+  color: green !important;
 }
 
 .nm {
   color: #cc96cc;
+}
+
+.nav-bt:hover {
+  background-color: transparent !important;
+  color: red;
 }
 
 .p-info {
