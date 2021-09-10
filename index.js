@@ -23,8 +23,6 @@ app.use("/api", surveyRoutes);
 
 const URI = process.env.MONGODB_URI;
 
-// const mongo = "mongodb://127.0.0.1:27017/covid";
-
 mongoose
   .connect(URI)
   .then(() => console.log("Database connection established"))
