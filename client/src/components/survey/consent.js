@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { purple } from "@material-ui/core/colors";
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Consent() {
+export default function Consent({ onSurveyStart }) {
   const classes = useStyles();
   return (
     <section className="bg-white mt-3 mb-3 py-5">
@@ -78,8 +77,7 @@ export default function Consent() {
                 variant="contained"
                 color="primary"
                 className={classes.margin}
-                component={Link}
-                to="/survey"
+                onClick={onSurveyStart}
               >
                 Continue
               </ColorButton>

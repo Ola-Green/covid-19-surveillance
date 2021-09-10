@@ -5,7 +5,7 @@ export default function SurveyTable({ surveys, result }) {
   if (result === 0)
     return (
       <section className="mt-3 mb-3 py-2 px-5 text-center bg-primary covid-section text-white rounded">
-        <h4>Take a covid-19 survey today even if you feel well.Thank you.</h4>
+        <h4>Take a covid-19 survey today even if you feel fine.Thank you.</h4>
       </section>
     );
   return (

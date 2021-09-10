@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import HomePage from "./pages/homepage";
-import Consent from "./pages/consent";
 import SurveyPage from "./pages/survey";
 import Register from "./pages/register";
 import Login from "./pages/login";
@@ -22,14 +21,20 @@ export default function App() {
   return (
     <Router>
       <Alert />
+
       <Header />
 
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/consent" component={auth.token ? Consent : Login} />
+
         <Route exact path="/register" component={Register} />
-        <Route exact path="/survey" component={SurveyPage} />
+
         <Route exact path="/login" component={Login} />
+        <Route
+          exact
+          path="/survey"
+          component={auth.token ? SurveyPage : Login}
+        />
         <PrivateRouter exact path="/:page" component={PageRender} />
         <PrivateRouter exact path="/:page/:id" component={PageRender} />
       </Switch>

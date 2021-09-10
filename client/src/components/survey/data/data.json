@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "question": "Have you been been feeling feverish?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    },
+    {
+      "question": "Have you been coughing a lot?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    },
+    {
+      "question": "Have you been having headache a lot?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    },
+    {
+      "question": "Have you been experiencing rashes ?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    },
+    {
+      "question": "Have you been bleeding a lot lately?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    },
+    {
+      "question": "Have you been having sore throat?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    },
+    {
+      "question": "Have you been experiencing strange case of convulsion?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    },
+    {
+      "question": "Are you nauseous and vomitting?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    },
+    {
+      "question": "Have you been having diarrhoea ?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    },
+    {
+      "question": "Are you experiencing a disorienting dizzyness and disordered state of consciousness ?",
+      "choices": ["No", "Yes", "Unsure"],
+      "answer": "No"
+    }
+  ]
+}

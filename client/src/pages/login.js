@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   textField: {
-    width: "80%",
+    width: "60%",
     margin: theme.spacing(1, 0),
   },
 
@@ -134,10 +134,12 @@ export default function Login() {
           marginTop: "20px",
         }}
       >
-        <h3 style={{ marginRight: "10px" }}>Don't have an account?</h3>
-        <Link to="/register">
-          <h3>Register</h3>
-        </Link>
+        <p className="lead h5">
+          Don't have an account?{" "}
+          <Link style={{ textDecoration: "none" }} to="/register">
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );

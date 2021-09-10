@@ -44,7 +44,7 @@ function Header() {
           <Button
             variant="contained"
             component={Link}
-            to={auth.token ? "/consent" : "/login"}
+            to={auth.token ? "/survey" : "/login"}
           >
             Check Your Covid Status
           </Button>
